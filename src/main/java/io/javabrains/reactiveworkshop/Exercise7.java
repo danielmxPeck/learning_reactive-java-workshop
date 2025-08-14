@@ -11,9 +11,24 @@ public class Exercise7 {
 
         // Print all values from intNumbersFlux that's greater than 5
         // TODO: Write code here
-
+//        ReactiveSources.intNumbersFlux()
+//                .filter(num -> num > 5)
+//                .log()
+//                .collectList()
+//                .subscribe(System.out::println);
         // Print 10 times each value from intNumbersFlux that's greater than 5
         // TODO: Write code here
+        ReactiveSources.intNumbersFlux()
+                .filter(num -> num > 5)
+                .log()
+                .collectList()
+                .subscribe(num -> {
+                    for (Integer i : num) {
+                        for (int j = 0; j < 10; j++) {
+                            System.out.println(i);
+                        }
+                    }
+                });
 
         // Print 10 times each value from intNumbersFlux for the first 3 numbers emitted that's greater than 5
         // TODO: Write code here
